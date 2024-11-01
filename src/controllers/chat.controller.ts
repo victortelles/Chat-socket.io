@@ -12,6 +12,12 @@ export const sendMessage = (io: Server, socket: Socket) => {
         io.to(`room-${data.room}`).emit("messageReceived", data);
     });
 
+    socket.on('joinRoom', (roomId) => {
+        console.log(`Usuario conectado a la sala ${roomId}`);
+        socket.join(`room-${roomId}`);
+        //Notificar nuevo usuario a la sala.
+        io.to(`room-${roomId}`).emit("newUserJoined", { message: "Nuevo usuario se unio a la sala", room: roomId });
+    })
 };
 
 //Renderizar el archivo de la sala de chat especifico
