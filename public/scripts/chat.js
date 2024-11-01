@@ -11,6 +11,7 @@ const messagesContainer = document.getElementById('messagesContainer');
 
 //Obtener el nombre de usuario desde la localstorage
 const username = localStorage.getItem("username" || `user-${Math.random.toString(36).substr(2, 9)}`)
+localStorage.setItem("username", username);
 
 //Obtener el ID de la sala desde URL
 const roomId = window.location.href.split('/').pop();
@@ -18,9 +19,6 @@ const roomId = window.location.href.split('/').pop();
 //Cliente se une a una sala especifica desde url.
 socket.emit('joinRoom', roomId, username);
 console.log(`${username} se ha unido a la sala ${roomId}`);
-
-//Referencia a un ID usuario temporal
-//const userId = `user-${Math.random().toString(36).substr(2, 9)}`;
 
 //Manejar el envio de forms de mensajes
 messageForm.addEventListener('submit', (event) => {
@@ -58,21 +56,19 @@ socket.on('userDisconnected', (data) => {
 });
 
 
-/*
-//Modificar el joinRoom en el backend
-socket.on('joinRoom', ({ roomId, username }) => {
-    console.log(`Usuario ${username} se ha unido a la sala ${roomId}`);
-    socket.join(`room-${roomId}`);
-    io.to(`room-${roomId}`).emit("newsUserJoined", {username, room: roomId});
-});
-*/
-
-// Función para mostrar mensajes en el chat con estilos
+// Función para mostrar mensajes con el contenido en el chat
 function displayMessage(data, isOwnMessage) {
     //Crea un nuevo elemento (div)
     const newMessage = document.createElement('div');
     newMessage.classList.add('message', isOwnMessage ? 'sent' : 'received');
 
+    //Crear elemento para el autor del msj
+    const messageAuthor = document.createElement('div');
+    //Estilo
+    messageAuthor.classList.add('username', isOwnMessage ? 'username-sent' : 'username-received');
+    messageAuthor.textContent = data.senderId;
+
+    //Elemento para el texto del mensaje
     const messageText = document.createElement('span');
     messageText.textContent = data.message;
 
@@ -83,13 +79,8 @@ function displayMessage(data, isOwnMessage) {
     //Estilo timestamp, si es propietario (derecha) si es remitente (izq)
     timestamp.style.alignSelf = isOwnMessage ? 'flex-end':'flex-start'
 
-
-    //newMessage.textContent = data.message;
-
-    //Aplica la clase de estilo segun el remitente.
-    //newMessage.classList.add(isOwnMessage || data.senderId === userId ? 'sent' : 'received');
-
     //Agregar el mensaje al contenedor.
+    newMessage.appendChild(messageAuthor);
     newMessage.appendChild(messageText);
     newMessage.appendChild(timestamp);
     messagesContainer.appendChild(newMessage);

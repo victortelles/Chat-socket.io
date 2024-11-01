@@ -47,7 +47,7 @@ body {
     color: white;
 }
 
-.sent .timestamp{
+.sent .timestamp {
     color: white;
 }
 
@@ -59,7 +59,7 @@ body {
 }
 
 .received .timestamp {
-    color:gray
+    color: gray
 }
 
 .message-form {
@@ -127,4 +127,21 @@ body {
 
 .notification:after {
     right: 0;
+}
+
+
+.username {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.username-sent {
+    color: blue;
+    text-align: right;
+}
+
+.username-received {
+    color: gray;
+    text-align: left;
 }
