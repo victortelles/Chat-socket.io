@@ -55,6 +55,11 @@ socket.on('userDisconnected', (data) => {
     console.log(`${data.message}`);
 });
 
+//Funcion para hacer que el scroll se vaya para abjo
+function scrollToBottom() {
+    const messagesContainer = document.getElementById("messagesContainer");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
 
 // Función para mostrar mensajes con el contenido en el chat
 function displayMessage(data, isOwnMessage) {
@@ -84,6 +89,8 @@ function displayMessage(data, isOwnMessage) {
     newMessage.appendChild(messageText);
     newMessage.appendChild(timestamp);
     messagesContainer.appendChild(newMessage);
+
+    scrollToBottom();
 }
 
 //funcion para mostrar notificaciones
