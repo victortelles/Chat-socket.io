@@ -1,0 +1,27 @@
+{
+  "name": "socket.io",
+  "version": "1.0.0",
+  "description": "socket.io",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "dev": "nodemon src/index.ts",
+    "scripts": "tsc"
+  },
+  "author": "Victor",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.8.4",
+    "@types/socket.io": "^3.0.2",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "socket.io": "^4.8.1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "include": ["./src/**/*.ts"],       //Archivo origen
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "outDir": "dist/scripts",       //Archivo destino, donde guardar
+        "target": "ES6",                //version de JS
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
+        "resolveJsonModule": true,
+        "strict": true
+    }
+}
