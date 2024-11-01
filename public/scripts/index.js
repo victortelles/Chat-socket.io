@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         modal.style.display = "flex"; // Mostrar el modal si no existe un nombre de usuario
     }
+
+    //MLogica del evento de cerrar sesion
+    const logOutButton = document.getElementById("logOutButton");
+    logOutButton.addEventListener("click", function () {
+        localStorage.removeItem("username");
+        displayName.textContent = '';
+        modal.style.display = 'flex';
+    });
 });
 
 // Función para establecer el nombre de usuario

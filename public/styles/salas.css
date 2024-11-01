@@ -84,3 +84,34 @@ a:active {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+.button-logOut {
+    margin-top: 20px;
+    /* Espacio superior para separar del contenido */
+    text-align: center;
+    /* Centrar el botón */
+}
+
+.button-logOut {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.logOut {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.logOut:hover {
+    background-color: #c82333;
+}
+
+.logOut:active {
+    background-color: #bd2130;
+}
