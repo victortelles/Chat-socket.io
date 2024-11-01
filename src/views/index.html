@@ -9,17 +9,26 @@
 </head>
 
 <body>
+
+    <!-- Modal para nombre usuario-->
+    <div id="usernameModal" class="modal">
+        <div class="modal-content">
+            <h2> Ingresa tu nombre de usuario </h2>
+            <input type="text" name="username" placeholder="Nombre de usuario" autocomplete="off" id="usernameInput">
+            <button class="modal-button" onclick="setUsername()"> Aceptar </button>
+        </div>
+    </div>
+
     <h1> Salas </h1>
 
-    <h3>Selecciona alguna sala</h3>
+    <h3>Selecciona alguna sala <span id="displayName"></span></h3>
     <ul>
-
         <!-- Lista de salas-->
         <li><a href="/chat/1">Sala 1 </a></li>
         <li><a href="/chat/2">Sala 2</a></li>
         <li><a href="/chat/3">Sala 3</a></li>
         <li><a href="/chat/4">Sala 4</a></li>
     </ul>
+    <script defer src="/scripts/index.js"></script>
 </body>
-
 </html>
