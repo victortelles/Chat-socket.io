@@ -23,8 +23,8 @@ messageForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     //Hora
-    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
     const message = messageInput.value;
+    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 
     if (message.trim()) {
         //Envia mensaje al servidor (sala y Id user.remitente)
@@ -36,19 +36,45 @@ messageForm.addEventListener('submit', (event) => {
 
 //Escuchar nuevos mensajes recibidos del servidor y mostrarlos en el chat
 socket.on('messageReceived', (data) => {
-    displayMessage(data, false);
+    displayMessage(data, data.senderId === userId);
 });
+
+//Mensaje Notificacion de nuevo usuario
+socket.on('newUserJoined', (data) => {
+    displayNotification(data.message);
+})
 
 // Función para mostrar mensajes en el chat con estilos
 function displayMessage(data, isOwnMessage) {
     //Crea un nuevo elemento (div)
     const newMessage = document.createElement('div');
-    newMessage.classList.add('message');
-    newMessage.textContent = data.message;
+    newMessage.classList.add('message', isOwnMessage ? 'sent' : 'received');
+
+    const messageText = document.createElement('span');
+    messageText.textContent = data.message;
+
+    //Creacion de la hora (timestamp)
+    const timestamp = document.createElement('span');
+    timestamp.classList.add('timestamp');
+    timestamp.textContent = data.timestamp;
+
+    //Estilo timestamp, si es propietario (derecha) si es remitente (izq)
+    timestamp.style.alignSelf = isOwnMessage ? 'flex-end':'flex-start'
+
+    //newMessage.textContent = data.message;
 
     //Aplica la clase de estilo segun el remitente.
-    newMessage.classList.add(isOwnMessage || data.senderId === userId ? 'sent' : 'received');
+    //newMessage.classList.add(isOwnMessage || data.senderId === userId ? 'sent' : 'received');
 
     //Agregar el mensaje al contenedor.
+    newMessage.appendChild(messageText);
+    newMessage.appendChild(timestamp);
     messagesContainer.appendChild(newMessage);
+}
+
+function displayNotification(message) {
+    const displayNotification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = `- ${message} -`;
+    messagesContainer.appendChild(notification);
 }

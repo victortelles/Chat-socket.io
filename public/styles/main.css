@@ -47,10 +47,19 @@ body {
     color: white;
 }
 
+.sent .timestamp{
+    color: white;
+}
+
+
 .received {
     align-self: flex-start;
     background-color: #e0e0e0;
     color: black;
+}
+
+.received .timestamp {
+    color:gray
 }
 
 .message-form {
@@ -85,5 +94,37 @@ body {
 .title-chat {
     text-align: center;
     display: flex;
+}
 
+
+.timestamp {
+    font-size: 13px;
+    align-self: flex-end;
+
+}
+
+.notification {
+    color: gray;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    margin: 10px 0;
+}
+
+.notification:before,
+.notification:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: gray;
+}
+
+.notification:before {
+    left: 0;
+}
+
+.notification:after {
+    right: 0;
 }

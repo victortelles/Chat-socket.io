@@ -12,6 +12,7 @@ export const sendMessage = (io: Server, socket: Socket) => {
         io.to(`room-${data.room}`).emit("messageReceived", data);
     });
 
+    //Usuario se une a la sala
     socket.on('joinRoom', (roomId) => {
         console.log(`Usuario conectado a la sala ${roomId}`);
         socket.join(`room-${roomId}`);
