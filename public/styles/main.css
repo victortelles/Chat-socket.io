@@ -113,10 +113,10 @@ body {
 
 .notification:before,
 .notification:after {
-    content: "";
+    content: "ᓚᘏᗢ";
     position: absolute;
     top: 50%;
-    width: 40%;
+    width: 10%;
     height: 1px;
     background-color: gray;
 }

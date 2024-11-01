@@ -6,19 +6,28 @@ import path from 'path';
 export const sendMessage = (io: Server, socket: Socket) => {
     //Escuchar el evento, enviado desde el cliente
     socket.on('sendNewMessage', (data) => {
-        console.log(`Mensaje Recibido en la sala ${data.room}: ${data.message}`);
+        console.log(`Mensaje recibido de ${data.senderId} en la sala ${data.room}: ${data.message}`);
 
         //Emitir el mensaje unicamente en la misma sala
         io.to(`room-${data.room}`).emit("messageReceived", data);
     });
 
     //Usuario se une a la sala
-    socket.on('joinRoom', (roomId) => {
-        console.log(`Usuario conectado a la sala ${roomId}`);
+    socket.on('joinRoom', (roomId, username) => {
+        console.log(`Usuario ${username} se ha unido a la sala ${roomId}`);
         socket.join(`room-${roomId}`);
+
         //Notificar nuevo usuario a la sala.
-        io.to(`room-${roomId}`).emit("newUserJoined", { message: "Nuevo usuario se unio a la sala", room: roomId });
-    })
+        io.to(`room-${roomId}`).emit("newUserJoined", { message: `${username} se unio a la sala`, room: roomId });
+
+        socket.on('disconnect', () => {
+            console.log(`${username} se ha desconectado de la sala ${roomId}`);
+
+            //Notificar que un usuario ha dejado la sala.
+            io.to(`room-${roomId}`).emit("userDisconnected", {message: `${username} ha dejado la sala`, room: roomId});
+        });
+    });
+
 };
 
 //Renderizar el archivo de la sala de chat especifico
