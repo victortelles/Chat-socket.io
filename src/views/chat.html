@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChAT 2.0</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Se crea el script, y socket.io te genera uno al entrar a la sala-->
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="title-chat">
+            <h1> Chat </h1>
+        </div>
+
+        <!-- Contenedor para mensajes recibidos -->
+        <div id="messagesContainer" class="messages-container"></div>
+
+        <!-- Formulario para enviar mensajes-->
+        <form id="messageForm" class="message-form">
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Escribe tu mensaje.."
+                autocomplete="off"
+                required
+            />
+            <button type="submit"> Enviar</button>
+        </form>
+    </div>
+    <script defer src="/scripts/chat.js"></script>
+</body>
+</html>
