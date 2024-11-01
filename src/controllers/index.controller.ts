@@ -1,0 +1,9 @@
+import { Request, Response } from 'express';
+import path from 'path';
+
+//Renderizar la pagina index.html
+export const renderIndex = (req: Request, res: Response): void => {
+    // Construye al archivo index.html
+    const indexPath = path.join(__dirname, '..', 'views', 'index.html');
+    res.sendFile(indexPath);
+};
