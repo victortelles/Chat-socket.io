@@ -33,5 +33,8 @@ export const sendMessage = (io: Server, socket: Socket) => {
 //Renderizar el archivo de la sala de chat especifico
 export const getChatRoom = (req: Request, res: Response) => {
     //Envia el HTML
-    res.sendFile(path.join(__dirname, '../views/chat.html'));
+    //produccion
+    res.sendFile(path.join(process.cwd(), 'dist', 'views', 'chat.html'));
+    //desarrollo
+    //res.sendFile(path.join(__dirname,'../views/chat.html'));
 };
