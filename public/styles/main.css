@@ -92,10 +92,34 @@ body {
 }
 
 .title-chat {
-    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.back {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button {
+    margin-right: 20px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #c82333;
+}
 
 .timestamp {
     font-size: 13px;

@@ -93,3 +93,10 @@ function displayNotification(message) {
     joinNotification.textContent = `- ${message} -`;
     messagesContainer.appendChild(joinNotification);
 }
+
+
+//Boton de regresar
+const backButton = document.getElementById('backButton');
+backButton.addEventListener('click', () => {
+    window.location.href = '/'
+});
