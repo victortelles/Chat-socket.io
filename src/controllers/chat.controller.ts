@@ -24,7 +24,7 @@ export const sendMessage = (io: Server, socket: Socket) => {
             console.log(`${username} se ha desconectado de la sala ${roomId}`);
 
             //Notificar que un usuario ha dejado la sala.
-            io.to(`room-${roomId}`).emit("userDisconnected", {message: `${username} ha dejado la sala`, room: roomId});
+            io.to(`room-${roomId}`).emit("userDisconnected", { message: `${username} ha dejado la sala`, room: roomId });
         });
     });
 
@@ -33,8 +33,10 @@ export const sendMessage = (io: Server, socket: Socket) => {
 //Renderizar el archivo de la sala de chat especifico
 export const getChatRoom = (req: Request, res: Response) => {
     //Envia el HTML
+
     //produccion
-    res.sendFile(path.join(process.cwd(), 'dist', 'views', 'chat.html'));
+    //res.sendFile(path.join(process.cwd(), 'dist', 'views', 'chat.html'));
+
     //desarrollo
-    //res.sendFile(path.join(__dirname,'../views/chat.html'));
+    res.sendFile(path.join(__dirname, '../views/chat.html'));
 };

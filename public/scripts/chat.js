@@ -1,5 +1,6 @@
 //test
-console.log("Chat.js loaded");
+console.log("********* Chat.js está cargado correctamente *********");
+
 
 //Conexion del cliente con el servidor de socket.io
 const socket = io('/');

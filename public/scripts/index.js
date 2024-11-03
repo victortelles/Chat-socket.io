@@ -1,3 +1,7 @@
+//test
+console.log("********* index.js está cargado correctamente *********");
+
+
 document.addEventListener("DOMContentLoaded", function () {
     //Elementos del Modal
     const modal = document.getElementById("usernameModal");

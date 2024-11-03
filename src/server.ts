@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware para servir archivos estáticos
-//app.use('/', express.static(path.join(__dirname, '..', 'public')));
+app.use('/', express.static(path.join(__dirname, '..', 'public')));
 
 //establecer la ubicacion de vistas (html)
 app.set('views', path.join(__dirname, 'views'));
