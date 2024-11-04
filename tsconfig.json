@@ -1,3 +1,4 @@
+//tsconfig.json para Desarrollo
 // {
 //     "include": ["./src/**/*.ts"],       //Archivo origen
 //     "exclude": ["node_modules"],
@@ -12,3 +13,20 @@
 //         "strict": true
 //     }
 // }
+
+
+//tsconfig.json para produccion
+{
+    "include": ["./src/**/*.ts"],       //Archivo origen
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "outDir": "dist/scripts",
+        "target": "ES6",
+        "module": "CommonJS",
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "moduleResolution": "NodeNext",
+        "resolveJsonModule": true,
+        "strict": true,
+    }
+}

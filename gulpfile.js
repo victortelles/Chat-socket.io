@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const ts = require('gulp-typescript');
+const tsProject = ts.createProject('tsconfig.json');
 
 // Rutas de tu proyecto
 const paths = {
@@ -10,6 +11,7 @@ const paths = {
     dist: 'dist/'                        // Carpeta de destino
 };
 
+/*
 // Configuración de TypeScript directamente en Gulp
 const tsProject = ts.createProject({
     outDir: paths.dist + 'scripts',
@@ -21,6 +23,7 @@ const tsProject = ts.createProject({
     resolveJsonModule: true,
     strict: true,
 });
+*/
 
 // Tarea para compilar TypeScript
 gulp.task('scripts', () => {
@@ -45,7 +48,7 @@ gulp.task('copy-js', () => {
         .pipe(gulp.dest(paths.dist + 'scripts'));
 });
 
-// Agrupar tareas de copia
+// Agrupar tareas
 gulp.task('copy', gulp.parallel('copy-html', 'copy-css', 'copy-js'));
 
 // Tarea de build que ejecuta las tareas de scripts y copia
