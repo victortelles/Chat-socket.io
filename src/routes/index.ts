@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { renderIndex } from '../controllers/index.controller';
-import chatRoutes from './chat.routes';
+import { renderIndex } from '../controllers/index.controller.js';
+import chatRoutes from './chat.routes.js';
 
 const router = Router();
 
