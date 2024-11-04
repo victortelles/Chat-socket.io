@@ -14,7 +14,7 @@ const paths = {
 const tsProject = ts.createProject({
     outDir: paths.dist + 'scripts',
     target: 'ES6',
-    module: 'NodeNext',
+    module: 'CommonJS',
     noImplicitAny: true,
     esModuleInterop: true,
     moduleResolution: 'NodeNext',
