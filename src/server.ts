@@ -1,10 +1,9 @@
 import express from 'express';
 import { config } from 'dotenv';
 import path from 'path';
-
+import routes from './routes';
 //import socketIo from 'socket.io';
 import { Server } from 'socket.io';
-import router from './routes/index.js';
 
 config();
 
@@ -24,7 +23,7 @@ app.use(express.static(path.join(process.cwd(), 'dist')));
 app.use(express.json());
 
 //Importar rutas
-app.use(router)
+app.use(routes)
 
 //Importar el socket.io (server) (similar al "app.listen")
 const server = app.listen(port, () => {

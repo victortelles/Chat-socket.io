@@ -1,7 +1,7 @@
 // src/routes/chat.routes.ts
 import { Router } from 'express';
-import { getChatRoom } from '../controllers/chat.controller.js';
-import { validateUsername } from '../middlewares/auth.middleware.js';
+import { getChatRoom } from '../controllers/chat.controller';
+import { validateUsername } from '../middlewares/auth.middleware';
 
 const router = Router();
 
