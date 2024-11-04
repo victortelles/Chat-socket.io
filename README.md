@@ -50,19 +50,19 @@ Es necesario tener instaladas las siguientes tecnologías en el sistema:
 
 4. **Compilar el Proyecto**
    Compila el proyecto usando el comando de Gulp para generar el build:
-   ````bash
+   ```bash
    npm run build
    ```
 
 5. **Ejecutar el Proyecto**
    Compila el proyecto usando el comando de Gulp para generar el build:
-   ````bash
+   ```bash
    npm run start
    ```
 
 6. **Despliegue en Producción (automatizado)**
    Para instalar todo de uno es con el siguiente comando, lo que hace es: (Instalaccion de dependencias, Compilacion del proyecto y ejecucion del proyecto)
-   ```
+   ```bash
    npm run prod
    ```
 
