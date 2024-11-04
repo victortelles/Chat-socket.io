@@ -29,7 +29,7 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest(paths.dist + 'scripts'));
 });
 
-// Tareas de copia para HTML, CSS y JS, retornando los streams
+// Tarea para copiar HTML, CSS y JS y definiendo carpetas.
 gulp.task('copy-html', () => {
     return gulp.src(paths.html)
         .pipe(gulp.dest(paths.dist + 'views'));
