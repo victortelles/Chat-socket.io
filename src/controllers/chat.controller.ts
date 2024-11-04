@@ -35,8 +35,8 @@ export const getChatRoom = (req: Request, res: Response) => {
     //Envia el HTML
 
     //produccion
-    //res.sendFile(path.join(process.cwd(), 'dist', 'views', 'chat.html'));
+    res.sendFile(path.join(process.cwd(), 'dist', 'views', 'chat.html'));
 
     //desarrollo
-    res.sendFile(path.join(__dirname, '../views/chat.html'));
+    //res.sendFile(path.join(__dirname, '../views/chat.html'));
 };

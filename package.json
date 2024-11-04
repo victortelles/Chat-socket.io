@@ -8,6 +8,7 @@
     "start": "node .",
     "dev": "nodemon src/server.ts",
     "build": "gulp",
+    "prod": "npm install && npm run build && npm start",
     "scripts": "tsc"
   },
   "author": "Victor",
